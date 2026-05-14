@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
+        <title>StudyBuddy</title>
+    </head>
+
+    <body>
+        <h1>Student Task Manager</h1>
+        <section id="task-manager-section">
+
+            <div class="task-manager-container">
+
+                <h2>Filter Tasks</h2>
+                <div class="filter-methods-container">
+                    
+                    <label for="delete-by-index">Delete by index:</label>
+                    <input type="number" id="delete-by-index" name="delete-by-index" placeholder="Enter index number">
+                    <button type="button" value="Delete">Delete</button>
+
+                    <button type="button" value="Filter">Filter</button>
+
+                    <label for="find-by-name">Find task by name:</label>
+                    <input type="text" id="find-by-name" placeholder="Enter task name">
+                    <button type="button" value="Find">Find</button>
+
+                    <button type="button" value="Sort">Sort</button>
+                </div>
+                
+                <h2>Organize Your tasks</h2>
+                <div class="enter-task-container">
+                    <label for="enter-task">Enter Task:</label>
+                    <input id="enter-task" name="enter-task" type="text" placeholder="Enter task name here">
+                    <button type="button" value="Add">Add</button>
+                </div>
+                
+                <div class="task-container">
+                    <ul id="task-list">
+                    </ul>
+                </div>
+            </div>
+
+        </section>
+
+        <script src="main.js"></script>
+    </body>
+</html>
