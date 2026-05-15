@@ -18,27 +18,31 @@
                     
                     <label for="delete-by-index">Delete by index:</label>
                     <input type="number" id="delete-by-index" name="delete-by-index" placeholder="Enter index number">
-                    <button type="button" value="Delete">Delete</button>
+                    <button type="button" value="Delete" id="delete-by-index-btn">Delete</button>
 
-                    <button type="button" value="Filter">Filter</button>
+                    <button type="button" value="Filter" id="filter-btn">Filter</button>
 
                     <label for="find-by-name">Find task by name:</label>
                     <input type="text" id="find-by-name" placeholder="Enter task name">
-                    <button type="button" value="Find">Find</button>
+                    <button type="button" value="Find" id="find-btn">Find</button>
 
-                    <button type="button" value="Sort">Sort</button>
+                    <button type="button" value="Sort" id="sort-btn">Sort</button>
                 </div>
                 
                 <h2>Organize Your tasks</h2>
                 <div class="enter-task-container">
                     <label for="enter-task">Enter Task:</label>
                     <input id="enter-task" name="enter-task" type="text" placeholder="Enter task name here">
-                    <button type="button" value="Add">Add</button>
+                    <button type="button" value="Add" id="add-btn">Add</button>
                 </div>
                 
                 <div class="task-container">
-                    <ul id="task-list">
-                    </ul>
+                    <div class="task-container-button">
+                        <button type="button" id="deleteLastElement">Delete last element</button>
+                        <button type="button" id="deleteFirstElement">Delete first element</button>
+                    </div>
+                    <ol id="task-list">
+                    </ol>
                 </div>
             </div>
 

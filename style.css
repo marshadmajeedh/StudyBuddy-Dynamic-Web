@@ -4,6 +4,12 @@
     padding:0px;
 }
 
+body{
+    margin:20px;
+    border:2px solid black;
+    min-height: 100vh;
+    border-radius: 10px;
+}
 h1{
     text-align: center;
     margin:20px;
@@ -88,4 +94,62 @@ h2{
 
 .filter-methods-container label{
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.task-container-style{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width:auto;
+    margin:10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding:15px 8%;
+}
+
+.styleDeleteButton{
+    width:100px;
+    height:30px;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-left: 15px;
+}
+
+.styleTask{
+    margin:5px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    list-style-position: inside;
+    list-style: lower-roman;
+}
+
+.task-container-button button{
+    display: none;
+    margin:5px;
+    width:150px;
+    height:30px;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.task-container-button .style-task-container-button{
+    display: inline-block;
+}
+
+#task-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+}
+
+#task-list .styleCheckBox{
+    margin-left: 15px;
+    margin-top: 8px;
+    width:60px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+.style-list-when-task-in-completed{
+    background: yellow;
 }
