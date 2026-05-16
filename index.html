@@ -43,6 +43,38 @@
                     </div>
                     <ol id="task-list">
                     </ol>
+                    <ol id="in-completed-task-list">
+                    </ol>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="gpa-calculator-section">
+
+            <div class="gpa-calculator-container">
+                <form>
+                    <fieldset id="field-set">
+
+                        <legend>Calculate GPA</legend>
+
+                        <label for="course-name">Course name:</label>
+                        <input id="course-name" name="course-name" type="text" placeholder="Course name">
+
+                        <label for="course-credit">Course credit:</label>
+                        <input id="course-credit" name="course-credit" type="number" placeholder="Course credit">
+
+                        <label for="course-grade">Course grade:</label>
+                        <input id="course-grade" name="course-grade" type="text" placeholder="Course grade">
+                        <button type="button" id="add-more-course" value="+">+</button>                    </fieldset>
+                </form>
+
+                <div class="calculate-button-container">
+                    <button type="button" value="Calculate" id="calculate-btn" name="calculate">Calculate</button>
+                </div>
+
+                <div class="result-container">
+                    <span id="gpa-result">Result:</span><span id="gpa-calculation">calculating....</span>
                 </div>
             </div>
 
