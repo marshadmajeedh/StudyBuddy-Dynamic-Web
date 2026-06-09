@@ -12,35 +12,52 @@
         <section id="task-manager-section">
 
             <div class="task-manager-container">
-
+                <!--Second box-->
                 <h2>Filter Tasks</h2>
                 <div class="filter-methods-container">
-                    
+                    <!--Third box-->
+
+                    <!--Delete a task by its index-->
                     <label for="delete-by-index">Delete by index:</label>
                     <input type="number" id="delete-by-index" name="delete-by-index" placeholder="Enter index number">
                     <button type="button" value="Delete" id="delete-by-index-btn">Delete</button>
 
+                    <!--Filter button for incomplete tasks-->
                     <button type="button" value="Filter" id="filter-btn">Filter</button>
 
+                    <!--Search a task by its name-->
                     <label for="find-by-name">Find task by name:</label>
                     <input type="text" id="find-by-name" placeholder="Enter task name">
                     <button type="button" value="Find" id="find-btn">Find</button>
 
+                    <!--Alphabetize tasks-->
                     <button type="button" value="Sort" id="sort-btn">Sort</button>
                 </div>
                 
                 <h2>Organize Your tasks</h2>
+                <!--Fourth box-->
                 <div class="enter-task-container">
+                    <!--Here we enter task name-->
                     <label for="enter-task">Enter Task:</label>
                     <input id="enter-task" name="enter-task" type="text" placeholder="Enter task name here">
+                    <!--Add button add the task to list-->
                     <button type="button" value="Add" id="add-btn">Add</button>
                 </div>
                 
+                <!--Fifth box-->
                 <div class="task-container">
+
+                    <!--Sixth box-->
                     <div class="task-container-button">
+
+                        <!--This button delete the last task from the list-->
                         <button type="button" id="deleteLastElement">Delete last element</button>
+
+                        <!--This button delete the first task from the list-->
                         <button type="button" id="deleteFirstElement">Delete first element</button>
                     </div>
+
+                    <!--This is an ordered list to store all the task created by the user-->
                     <ol id="task-list">
                     </ol>
                     <ol id="in-completed-task-list">
@@ -49,37 +66,7 @@
             </div>
 
         </section>
-
-        <section id="gpa-calculator-section">
-
-            <div class="gpa-calculator-container">
-                <form>
-                    <fieldset id="field-set">
-
-                        <legend>Calculate GPA</legend>
-
-                        <label for="course-name">Course name:</label>
-                        <input id="course-name" name="course-name" type="text" placeholder="Course name">
-
-                        <label for="course-credit">Course credit:</label>
-                        <input id="course-credit" name="course-credit" type="number" placeholder="Course credit">
-
-                        <label for="course-grade">Course grade:</label>
-                        <input id="course-grade" name="course-grade" type="text" placeholder="Course grade">
-                        <button type="button" id="add-more-course" value="+">+</button>                    </fieldset>
-                </form>
-
-                <div class="calculate-button-container">
-                    <button type="button" value="Calculate" id="calculate-btn" name="calculate">Calculate</button>
-                </div>
-
-                <div class="result-container">
-                    <span id="gpa-result">Result:</span><span id="gpa-calculation">calculating....</span>
-                </div>
-            </div>
-
-        </section>
-
+        
         <script src="main.js"></script>
     </body>
 </html>
