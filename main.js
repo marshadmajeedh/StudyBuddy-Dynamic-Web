@@ -120,16 +120,22 @@ deleteFirstElement.addEventListener('click',()=>{
 //Buttons and Input values of variety of Filter methods
 const deleteByIndexValue = document.getElementById('delete-by-index');
 const deleteByIndexBtn = document.getElementById('delete-by-index-btn');
-const filterBtn = document.getElementById('filter-btn');
-const findByNameValue = document.getElementById('find-by-name');
-const findByNameBtn = document.getElementById('find-btn');
-const sortBtn = document.getElementById('sort-btn');
 
 //Function to delete a list by index
 deleteByIndexBtn.addEventListener('click',() =>{
-    if(deleteByIndexValue.value !== '' && array.length !== 0 && deleteByIndexValue.value <= array.length-1){
-        array.splice(Number(deleteByIndexValue.value),1)
-        let list = taskList.children[Number(deleteByIndexValue.value)]
+
+    let index = Number(deleteByIndexValue.value)-1;
+
+    if (index < 0){
+        alert('Index input cannot be less than one')
+    }else if(array.length === 0){
+        alert('Cannot delete because list is empty')
+    }else if(index+1 > array.length){
+        alert('index cannot be greater than the list size')
+    }else{
+
+        let list = taskList.children[index]
+        array.splice(index,1)
         taskList.removeChild(list)
 
         if(array.length === 0){
@@ -137,49 +143,6 @@ deleteByIndexBtn.addEventListener('click',() =>{
             deleteFirstElement.classList.remove('style-task-container-button')
             deleteLastElement.classList.remove('style-task-container-button')
         }
-
-    } else if(array.length === 0){
-        alert('Cannot delete because list is empty')
-
-    } else if(deleteByIndexValue.value > array.length-1){
-        alert('index cannot be greater than the list size')
-
-    }else{
-        alert('Index input cannot be null')
     }
-})
-
-//function to render all the in completed task
-filterBtn.addEventListener('click',() =>{
-    //variable to store all the in completed tasks from the task list
-    if(array.length !== 0){
-        const allInCompletedTask = Array.from(taskList.querySelectorAll('li input'))
-
-        //x here is filtered list
-        let x = allInCompletedTask.filter((e)=>{
-            if(!e.checked){
-                return e.parentElement
-            }
-        })
-
-        //y is used to check if a list is again checked
-        let y = allInCompletedTask.filter((item)=>{
-            if(item.checked){
-                return item.parentElement
-            }
-        })
-
-        //add style when unchecked
-        x.forEach((e)=>{
-            e.parentElement.classList.add('style-list-when-task-in-completed')
-        })
-
-        //remove style when checked
-        y.forEach((e)=>{
-            e.parentElement.classList.remove('style-list-when-task-in-completed')
-        })
-
-    } else{
-        alert('Cannot filter list is empty')
-    }
+    deleteByIndexValue.value = ''
 })
