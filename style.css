@@ -20,6 +20,7 @@ h2{
     margin:10px;
 }
 
+/*task manager style section*/
 #task-manager-section{
     display: flex;
     justify-content: center;
@@ -150,6 +151,23 @@ h2{
     border-radius: 10px;
 }
 
-.style-list-when-task-in-completed{
+.find-task-by-name{
     background: yellow;
 }
+
+#in-completed-task-list{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap:10px;
+}
+
+#in-completed-task-list .styleCheckBox{
+    margin-left: 15px;
+    margin-top: 8px;
+    width:60px;
+    height: 20px;
+    border-radius: 10px;
+}
+
+
