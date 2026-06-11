@@ -200,3 +200,7 @@ h2{
     margin-left:10px;
     background-color: red;
 }
+
+.style-complete-task{
+    text-decoration: line-through;
+}
