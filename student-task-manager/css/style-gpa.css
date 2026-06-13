@@ -1,0 +1,105 @@
+#gpa-calculator-section{
+    display: flex;
+    justify-content: center;
+    gap:10px;
+    max-height: 100vh;
+    margin:50px;
+    border:2px solid black;
+    border-radius: 10px;
+    padding:15px 8%;
+}
+
+legend{
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin:5px;
+}
+
+fieldset{
+    border: 2px solid black;
+    border-radius: 10px;
+    margin:10px;
+    padding: 10px;
+}
+
+.add-or-remove-course{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:20px 10px;
+    border:2px solid black;
+    border-radius: 10px;
+}
+
+#gpa-input-form{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+
+}
+
+.style-course-details-container{
+    border:2px solid black;
+    border-radius: 10px;
+    margin:10px;
+    padding:10px 20px;
+}
+
+.container{
+    margin:10px;
+}
+
+#gpa-input-form .form-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#gpa-input-form button{
+    width:100px;
+    height:30px;
+    border-radius: 10px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin:10px 30px;
+}
+
+#gpa-input-form input{
+    height:30px;
+    border-radius: 10px;
+    padding:5px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#gpa-input-form select{
+    height:30px;
+    border-radius: 10px;
+    padding:5px;
+    text-align: center;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+#gpa-input-form .gpa-result{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+#gpa-input-form .summary{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+#gpa-input-form .summary span{
+    margin: 10px;
+}
+
+#gpa-input-form .gpa-result span{
+    font-size: 2rem;
+}
