@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/style-task-management.css">
+        <link rel="stylesheet" href="css/style-gpa.css">
+        <title>StudyBuddy</title>
+    </head>
+
+    <body>
+        <h1>Student Task Manager</h1>
+        <section id="task-manager-section">
+
+            <div class="task-manager-container">
+                <!--Second box-->
+                <h2>Filter Tasks</h2>
+                <div class="filter-methods-container">
+                    <!--Third box-->
+
+                    <!--Delete a task by its index-->
+                    <label for="delete-by-index">Delete by index:</label>
+                    <input type="number" id="delete-by-index" name="delete-by-index" placeholder="Enter index number">
+                    <button type="button" value="Delete" id="delete-by-index-btn">Delete</button>
+
+                    <!--Filter button for incomplete tasks-->
+                    <button type="button" value="Filter" id="filter-btn">Filter</button>
+                    <button type="button" value="Reset" id="reset-btn">Reset</button>
+
+                    <!--Search a task by its name-->
+                    <label for="find-by-name">Find task by name:</label>
+                    <input type="text" id="find-by-name" placeholder="Enter task name">
+                    <button type="button" value="Find" id="find-btn">Find</button>
+
+                    <!--Alphabetize tasks-->
+                    <button type="button" value="Sort" id="sort-btn">Sort</button>
+                    <button type="button" value="Reverse" id="reverse-btn">Reverse</button>
+                </div>
+                
+                <h2>Organize Your tasks</h2>
+                <!--Fourth box-->
+                <div class="enter-task-container">
+                    <!--Here we enter task name-->
+                    <label for="enter-task">Enter Task:</label>
+                    <input id="enter-task" name="enter-task" type="text" placeholder="Enter task name here">
+
+                    <!--Here we enter task's priority whether its low, medium or high-->
+                    <label for="set-priority">Priority:</label>
+                    <select id="set-priority">
+                        <option id="low" value="low">Low</option>
+                        <option id="medium" value="medium">Medium</option>
+                        <option id="high" value="high">High</option>
+                    </select>
+
+                    <!--Add button add the task to list-->
+                    <button type="button" value="Add" id="add-btn">Add</button>
+                </div>
+                
+                <!--Fifth box-->
+                <div class="task-container">
+
+                    <!--Sixth box-->
+                    <div class="task-container-button">
+
+                        <!--This button delete the last task from the list-->
+                        <button type="button" id="deleteLastElement">Delete last element</button>
+
+                        <!--This button delete the first task from the list-->
+                        <button type="button" id="deleteFirstElement">Delete first element</button>
+                    </div>
+
+                    <!--This is an ordered list to store all the task created by the user-->
+                    <ol id="task-list">
+                    </ol>
+                </div>
+            </div>
+
+        </section>
+        <hr>
+        <!--Gpa Calculator section-->
+        <section id="gpa-calculator-section">
+            <!--This form consist of input field for gap calculation such as course name,grade,credit-->
+            <form id="gpa-input-form">
+                <fieldset id="filed-set-gpa-calculation">
+                    <legend>Gpa calculation</legend>
+
+                    <div class="add-or-remove-course">
+                        <label for="add">Add Module</label>
+                        <button type="button" id="add">+</button>
+                        <label for="remove">Remove Module</label>
+                        <button type="button" id="remove">-</button>
+                    </div>
+                    
+                    <div class="course-details-container">
+                    </div>
+                </fieldset>
+
+                <div class="summary">
+                    <span id="total-modules">Total modules:<span id="total-modules-count">0</span></span>
+                    <span id="total-credits">Total Credits:<span id="total-credits-count">0</span></span>
+                </div>
+                
+                <div class="gpa-result">
+                    <span id="result">Result:<span id="result-span">0</span></span>
+                </div>
+
+                <div class="form-button">
+                    <button type="button" value="Calculate" id="calculate-gpa-button">Calculate</button>
+                    <button type="reset" value="Reset" id="reset-gpa-button">Reset</button>
+                </div>
+            </form>
+        </section>
+        
+        <script src="js/function.js"></script>
+        <script src="js/addTask.js"></script>
+        <script src="js/delete.js"></script>
+        <script src="js/filter.js"></script>
+        <script src="js/find.js"></script>
+        <script src="js/sort.js"></script>
+        <script src="js/reverse.js"></script>
+        <script src="js/reset.js"></script>
+        <script src="js/gpa-calculation-function.js"></script>
+        <script src="js/gpa-calculation.js"></script>
+
+    </body>
+</html>
