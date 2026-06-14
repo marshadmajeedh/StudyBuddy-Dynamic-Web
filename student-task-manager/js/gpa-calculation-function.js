@@ -80,36 +80,59 @@ function increaseCreditCounts(credits){
     creditCounts.textContent = Number(creditCounts.textContent) + credits
 }
 
+function checksCourseContainerIsEmpty(){
+    if (course_details_container.children.length === 0){
+        course_details_container.classList.remove('style-course-details-container')
+    }
+}
 function removeModule(){
     removeModuleButton.addEventListener('click',()=>{
         
+        if(course_details_container.length === 0){
+            alert('cannot remove module section is empty')
+            return
+        }
         course_details_container.lastElementChild.remove()
         
-        if (course_details_container.children.length === 0){
-            course_details_container.classList.remove('style-course-details-container')
-        }
+        checksCourseContainerIsEmpty()
+        
         decreaseModuleCount()
     })
 }
 
-function calculateGpa(container){
+function calculateGpa(){
+
+    //input and select values
+    let container = course_details_container.querySelectorAll('.container')
+  
     calculateButton.addEventListener('click',() =>{
 
         let points = 0
         let credits = 0
+
         container.forEach(module =>{
 
-            let moduleGradeScale = module.querySelector('.grading-scale-class').value
-            let moduleCredits = module.querySelector('.course-credit-class').value
+            let moduleGradeScale = module.querySelector('.grading-scale-class')
+            let moduleCredits = module.querySelector('.course-credit-class')
 
-            points = Number(points) + Number(moduleGradeScale * moduleCredits) 
-            credits = Number(credits) + Number(moduleCredits)
+            points += Number(moduleGradeScale.value) * Number(moduleCredits.value) 
+            credits += Number(moduleCredits.value)
         })
 
+        console.log(credits)
+        console.log(points)
         let finalResult = Number(points)/Number(credits)
 
         increaseCreditCounts(credits)
-        result.textContent = Number(result.textContent) +finalResult
+        result.textContent = Number(finalResult)
 
+    })
+}
+
+function resetForm (){
+    resetFormButton.addEventListener('click',() =>{
+        course_details_container.innerHTML = '';
+        checksCourseContainerIsEmpty()
+        moduleCounts.textContent = 0
     })
 }

@@ -9,8 +9,6 @@ addModuleButton.addEventListener('click', () =>{
     increaseModuleCount()
 })
 
-//input and select values
-let container = course_details_container.querySelectorAll('.container')
-
 removeModule()
-calculateGpa(container)
+calculateGpa()
+resetForm()
