@@ -9,7 +9,7 @@ function createGpaElements(){
         <label for="course-name-class">Course name:</label>
         <input type="text" class="course-name-class" placeholder="Software engineering">
 
-        <label for="course-grade-class">Course grade:</label>
+        <label for="course-grade-label">Course grade:</label>
         <select class="course-grade-class">
             <option value="A+">A+</option>
             <option value="A">A</option>
@@ -25,22 +25,10 @@ function createGpaElements(){
             <option value="E">E</option>
         </select>
 
-        <label for="grading-scale-class">Grading scale:</label>
-        <select class="grading-scale-class">
-            <option value="4.0">4.0</option>
-            <option value="3.7">3.7</option>
-            <option value="3.3">3.3</option>
-            <option value="3.0">3.0</option>
-            <option value="2.7">2.7</option>
-            <option value="2.3">2.3</option>
-            <option value="2.0">2.0</option>
-            <option value="1.7">1.7</option>
-            <option value="1.3">1.3</option>
-            <option value="1.0">1.0</option>
-            <option value="0.0">0.0</option>
-        </select>
+        <label for="grading-scale-label">Grading scale:</label>
+        <input type="text" class="grading-scale-class" value="4.0" readonly>
 
-        <label for="course-credit-class">Course Credit:</label>
+        <label for="course-credit-label">Course Credit:</label>
         <select class="course-credit-class">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -76,37 +64,41 @@ function decreaseModuleCount() {
         moduleCounts.textContent = Number(moduleCounts.textContent) - 1
     }
 }
-function increaseCreditCounts(credits){
-    creditCounts.textContent = Number(creditCounts.textContent) + credits
-}
 
 function checksCourseContainerIsEmpty(){
     if (course_details_container.children.length === 0){
         course_details_container.classList.remove('style-course-details-container')
     }
 }
+
 function removeModule(){
     removeModuleButton.addEventListener('click',()=>{
         
-        if(course_details_container.length === 0){
+        if(course_details_container.children.length === 0){
             alert('cannot remove module section is empty')
             return
         }
-        course_details_container.lastElementChild.remove()
-        
+        let lastChild = course_details_container.lastElementChild
+        let courseCreditLastChild = Number(lastChild.querySelector('.course-credit-class').value)
+
+        if (courseCreditLastChild > 0){
+            creditCounts.textContent = Number(creditCounts.textContent) - courseCreditLastChild
+        }
+
+        lastChild.remove()
         checksCourseContainerIsEmpty()
-        
         decreaseModuleCount()
+
     })
 }
 
 function calculateGpa(){
 
-    //input and select values
-    let container = course_details_container.querySelectorAll('.container')
-  
     calculateButton.addEventListener('click',() =>{
-
+        
+        //input and select values
+        let container = course_details_container.querySelectorAll('.container')
+        //here points == grade scale * credit score for each module (4.0 * 4) total points for one module is 16
         let points = 0
         let credits = 0
 
@@ -118,21 +110,53 @@ function calculateGpa(){
             points += Number(moduleGradeScale.value) * Number(moduleCredits.value) 
             credits += Number(moduleCredits.value)
         })
-
-        console.log(credits)
-        console.log(points)
+        
         let finalResult = Number(points)/Number(credits)
-
-        increaseCreditCounts(credits)
-        result.textContent = Number(finalResult)
+        
+        creditCounts.textContent = Number(credits)
+        result.textContent = Number(finalResult).toFixed(2)
 
     })
 }
 
+//This function contains the logic to clear out user typed entries for modules
 function resetForm (){
     resetFormButton.addEventListener('click',() =>{
         course_details_container.innerHTML = '';
         checksCourseContainerIsEmpty()
         moduleCounts.textContent = 0
+        creditCounts.textContent = 0
+        result.textContent = 0
     })
+}
+
+//this function converts grade to its corresponding scale
+function matchingGradingScale(moduleGrade){
+    switch(moduleGrade){
+        case "A+":
+        case "A":
+            return 4.0
+        case "A-":
+            return 3.7
+        case "B+":
+            return 3.3
+        case "B":
+            return 3.0
+        case "B-":
+            return 2.7
+        case "C+":
+            return 2.3
+        case "C":
+            return 2.0
+        case "C-":
+            return 1.7
+        case "D+":
+            return 1.3
+        case "D":
+            return 1.0
+        case "E":
+            return 0.0
+        default:
+            return 0.0
+    }
 }
