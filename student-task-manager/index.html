@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/style-task-management.css">
         <link rel="stylesheet" href="css/style-gpa.css">
+        <link rel="stylesheet" href="css/style-study-timer.css">
         <title>StudyBuddy</title>
     </head>
 
@@ -110,6 +111,21 @@
                 </div>
             </form>
         </section>
+        <hr>
+        
+        <section id="study-timer-section">
+            <h2>Study Timer</h2>
+
+            <div class="timer">
+                <span id="hour">00</span><span>:</span><span id="minute">00</span><span>:</span><span id="second">00</span>
+            </div>
+        
+            <div class="timer-buttons">
+                <button type="button" id="start" value="start">Start</button>
+                <button type="button" id="pause" value="pause">Pause</button>
+                <button type="button" id="reset" value="reset">Reset</button>
+            </div>
+        </section>
         
         <script src="js/function.js"></script>
         <script src="js/addTask.js"></script>
@@ -121,6 +137,7 @@
         <script src="js/reset.js"></script>
         <script src="js/gpa-calculation-function.js"></script>
         <script src="js/gpa-calculation.js"></script>
+        <script src="js/timer-function.js"></script>
 
     </body>
 </html>
