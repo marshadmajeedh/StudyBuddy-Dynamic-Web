@@ -8,11 +8,22 @@ addModuleButton.addEventListener('click', () =>{
     course_details_container.appendChild(container)
     increaseModuleCount()
 
-    let grade = container.querySelector('.course-grade-class')
+    let grade = container.querySelector(".course-grade-class")
     let gradeScale = container.querySelector(".grading-scale-class")
+    let credit = container.querySelector(".course-credit-class")
+    let previousValue = Number(credit.value)
 
     grade.addEventListener('change',() =>{
         gradeScale.value = matchingGradingScale(grade.value)
+    })
+
+    //this function will change total credit based on user selected credit value dynamically
+    credit.addEventListener('change',() => {
+        let newValue = Number(credit.value)
+
+        creditCounts.textContent = Number(creditCounts.textContent) - previousValue
+        creditCounts.textContent = Number(creditCounts.textContent) + newValue
+        previousValue = newValue
     })
 
 })
