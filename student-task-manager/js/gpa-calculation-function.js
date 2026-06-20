@@ -95,6 +95,8 @@ function removeModule(){
 
 function calculateGpa(){
 
+    let finalResult = 0
+
     calculateButton.addEventListener('click',() =>{
         
         //input and select values
@@ -112,12 +114,10 @@ function calculateGpa(){
             credits += Number(moduleCredits.value)
         })
         
-        let finalResult = Number(points)/Number(credits)
+        finalResult = Number(points)/Number(credits)
         
-        creditCounts.textContent = Number(credits)
-        result.textContent = Number(finalResult).toFixed(2)
-
     })
+    return finalResult
 }
 
 //This function contains the logic to clear out user typed entries for modules

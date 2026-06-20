@@ -26,6 +26,8 @@ addModuleButton.addEventListener('click', () =>{
         previousValue = newValue
     })
 
+    
+
 })
 
 removeModule()
