@@ -79,6 +79,7 @@ function removeModule(){
             alert('cannot remove module section is empty')
             return
         }
+
         let lastChild = course_details_container.lastElementChild
         let courseCreditLastChild = Number(lastChild.querySelector('.course-credit-class').value)
 
@@ -89,36 +90,48 @@ function removeModule(){
         lastChild.remove()
         checksCourseContainerIsEmpty()
         decreaseModuleCount()
+        result.textContent = calculateGpa()
 
     })
 }
+
 
 function calculateGpa(){
 
+    if(course_details_container.children.length === 0){
+        return 0
+    }
+
+    //input and select values
+    let container = course_details_container.querySelectorAll('.container')
+    //here points == grade scale * credit score for each module (4.0 * 4) total points for one module is 16
+    let points = 0
+    let credits = 0
     let finalResult = 0
 
-    calculateButton.addEventListener('click',() =>{
-        
-        //input and select values
-        let container = course_details_container.querySelectorAll('.container')
-        //here points == grade scale * credit score for each module (4.0 * 4) total points for one module is 16
-        let points = 0
-        let credits = 0
+    container.forEach(module =>{
 
-        container.forEach(module =>{
+        let moduleGradeScale = module.querySelector('.grading-scale-class')
+        let moduleCredits = module.querySelector('.course-credit-class')
 
-            let moduleGradeScale = module.querySelector('.grading-scale-class')
-            let moduleCredits = module.querySelector('.course-credit-class')
-
-            points += Number(moduleGradeScale.value) * Number(moduleCredits.value) 
-            credits += Number(moduleCredits.value)
-        })
-        
-        finalResult = Number(points)/Number(credits)
-        
+        points += Number(moduleGradeScale.value) * Number(moduleCredits.value) 
+        credits += Number(moduleCredits.value)
     })
-    return finalResult
+
+    if(Number(credits) === 0){
+        alert("please select module credits")
+        return
+    }
+
+    finalResult = Number(points)/Number(credits)
+    
+    return Number(finalResult.toFixed(2))
 }
+
+
+calculateButton.addEventListener('click',() =>{
+    result.textContent = calculateGpa()
+})
 
 //This function contains the logic to clear out user typed entries for modules
 function resetForm (){
