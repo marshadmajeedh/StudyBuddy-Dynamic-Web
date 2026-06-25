@@ -15,7 +15,6 @@ addModuleButton.addEventListener('click', () =>{
 
     grade.addEventListener('change',() =>{
         gradeScale.value = matchingGradingScale(grade.value)
-        result.textContent = calculateGpa()
     })
 
     //this function will change total credit based on user selected credit value dynamically
