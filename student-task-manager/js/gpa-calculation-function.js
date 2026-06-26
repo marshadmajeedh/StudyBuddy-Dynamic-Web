@@ -30,7 +30,6 @@ function createGpaElements(){
 
         <label for="course-credit-label">Course Credit:</label>
         <select class="course-credit-class">
-            <option value="0">0</option>
             <option value="1">1</option>
             <option value="2">2</option>
             <option value="3">3</option>
@@ -95,8 +94,41 @@ function removeModule(){
     })
 }
 
-
+//Function to calculate GPA
 function calculateGpa(){
+
+    if(course_details_container.children.length === 0){
+        return 0
+    }
+
+    let finalResult = calculateTotalGradePoints()/calculateTotalCredits()
+    
+    return Number(finalResult.toFixed(2))
+}
+
+//Function to calculate total credits
+function calculateTotalCredits(){
+    
+    if(course_details_container.children.length === 0){
+        return 0
+    }
+
+    //input and select values
+    let container = course_details_container.querySelectorAll('.container')
+    let credits = 0
+
+      container.forEach(module =>{
+
+        let moduleCredits = module.querySelector('.course-credit-class')
+        credits += Number(moduleCredits.value)
+    })
+
+    return Number(credits)
+
+}
+
+//function to calculate total Grade points
+function calculateTotalGradePoints(){
 
     if(course_details_container.children.length === 0){
         return 0
@@ -104,10 +136,7 @@ function calculateGpa(){
 
     //input and select values
     let container = course_details_container.querySelectorAll('.container')
-    //here points == grade scale * credit score for each module (4.0 * 4) total points for one module is 16
     let points = 0
-    let credits = 0
-    let finalResult = 0
 
     container.forEach(module =>{
 
@@ -115,19 +144,11 @@ function calculateGpa(){
         let moduleCredits = module.querySelector('.course-credit-class')
 
         points += Number(moduleGradeScale.value) * Number(moduleCredits.value) 
-        credits += Number(moduleCredits.value)
+    
     })
 
-    if(Number(credits) === 0){
-        alert("please select module credits")
-        return
-    }
-
-    finalResult = Number(points)/Number(credits)
-    
-    return Number(finalResult.toFixed(2))
+    return Number(points)
 }
-
 
 calculateButton.addEventListener('click',() =>{
     result.textContent = calculateGpa()
