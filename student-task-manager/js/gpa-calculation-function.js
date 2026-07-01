@@ -70,7 +70,6 @@ function checksCourseContainerIsEmpty(){
         course_details_container.classList.remove('style-course-details-container')
     }
 }
-
 function removeModule(){
     removeModuleButton.addEventListener('click',()=>{
         
@@ -90,6 +89,7 @@ function removeModule(){
         checksCourseContainerIsEmpty()
         decreaseModuleCount()
         result.textContent = calculateGpa()
+        creditCounts.textContent = calculateTotalCredits()
 
     })
 }
@@ -149,10 +149,6 @@ function calculateTotalGradePoints(){
 
     return Number(points)
 }
-
-calculateButton.addEventListener('click',() =>{
-    result.textContent = calculateGpa()
-})
 
 //This function contains the logic to clear out user typed entries for modules
 function resetForm (){

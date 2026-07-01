@@ -9,6 +9,7 @@ addModuleButton.addEventListener('click', () =>{
     course_details_container.appendChild(container)
     increaseModuleCount()
     result.textContent = calculateGpa()
+    creditCounts.textContent = calculateTotalCredits()
 
     let grade = container.querySelector(".course-grade-class")
     let gradeScale = container.querySelector(".grading-scale-class")
@@ -16,7 +17,7 @@ addModuleButton.addEventListener('click', () =>{
     let previousValue = Number(credit.value)
 
     grade.addEventListener('change',() =>{
-        gradeScale.value = matchingGradingScale(grade.value)
+        gradeScale.value = matchingGradingScale(grade.value).toFixed(1)
         result.textContent = calculateGpa()
     })
 
